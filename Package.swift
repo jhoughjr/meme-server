@@ -2,7 +2,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "vapor-auth-template",
+    name: "meme-server",
     platforms: [
        .macOS(.v13),
     ],
@@ -15,6 +15,7 @@ let package = Package(
         .package(url: "https://github.com/vapor/jwt.git", from: "4.0.0"),
         .package(url: "https://github.com/vapor/queues.git", from: "1.0.0"),
         .package(url: "https://github.com/vapor/queues-redis-driver.git", from: "1.0.0"),
+        .package(url: "https://github.com/vapor/leaf.git", from: "4.4.0"),
 
         // Mailgun
         .package(url: "https://github.com/vapor-community/mailgun.git",
@@ -32,6 +33,7 @@ let package = Package(
                .product(name: "QueuesRedisDriver",
                         package: "queues-redis-driver"),
                .product(name: "Mailgun", package: "mailgun"),
+                .product(name: "Leaf", package: "leaf"),
 
             ]
         ),

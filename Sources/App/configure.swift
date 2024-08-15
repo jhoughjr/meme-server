@@ -4,6 +4,7 @@ import Vapor
 import JWT
 import Mailgun
 import QueuesRedisDriver
+import Leaf
 
 public func configure(_ app: Application) throws {
     app.logger.info("configuring app...")
@@ -33,6 +34,9 @@ public func configure(_ app: Application) throws {
     app.middleware = .init()
     app.middleware.use(ErrorMiddleware.custom(environment: app.environment))
     app.middleware.use(app.sessions.middleware)
+    app.sessions.configuration.cookieName = "memes"
+
+    app.views.use(.leaf)
 
     // MARK: Model Middleware
     
@@ -56,7 +60,7 @@ public func configure(_ app: Application) throws {
         app.logger.info("automigrating db...")
         try app.autoMigrate().wait()
         app.logger.info("config:  \(app.queues.configuration)")
-//        try app.queues.startInProcessJobs()
+        try app.queues.startInProcessJobs()
     }else {
         // could check for a queues process maybe
         let msg =

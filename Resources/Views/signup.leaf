@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>#(title)</title>
+</head>
+
+<body>
+  <h1>#(title)</h1>
+
+  <form action="/api/auth/register" method="POST">
+  Full Name
+  <input type="text" title="fullName" id="fullName" name="fullName"><br>
+  Email
+  <input type="text" title="email" id="email" name="email"><br>
+  Password
+  <input type="password" title="password" id="password" name="password"><br>
+  Password Confirmation
+  <input type="password" title="confirmPassword" id="confirmPassword" name="confirmPassword"><br>
+  <input type= "submit" value= "Submit"/>
+  </form>
+</body>
+</html>
